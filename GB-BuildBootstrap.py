@@ -43,7 +43,7 @@ snippets = {
     "Rainbow":
     {
         "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Rainbow Card Deck, ID = {r}, date = {t} --> <div class="card-deck">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card text-white {c}> <div class="card-header"> <h5 class="text-white">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card text-white {c}"> <div class="card-header"> <h5 class="text-white">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
         "End": '</div> \n<!-- End of Rainbow Card Deck, ID = {r}, date = {t} -->\n\n'
     },
     "Columns":
@@ -70,11 +70,12 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 s = view.substr(region) # string of selected region
                 t = bs_parser(s,type) # send string to parser
                 view.replace(edit, region, t) # Update page content
-                # self.view.run_command("select_all")
-                # self.view.run_command("htmlprettify")
-                # self.view.sel().clear()
+                self.view.run_command("select_all")
+                self.view.run_command("htmlprettify")
+                self.view.sel().clear()
 
 def bs_parser(string, type):
+    name = type
     items = string.split('<h5>')
     # if I chose cards or deck and there are more than 3 cards, change to column view
     if (type == "Cards" or type == "Deck") and len(items) > 4:
@@ -109,12 +110,13 @@ def bs_parser(string, type):
             if idx == 1: # If I'm the first item
                 c = ' active show'
             # rainbow items
-            if type == 'Rainbow':
-                print("type: ", type)
+            if name == 'Rainbow':
+                print("name: ", name)
                 n = idx%len(colours) - 1
                 print("n: ", n)
                 colour = colours[n]
                 print("colour: ", colour)
+                c=colour
 
             new_str += snippets[type]['Repeat'].format(r=r, i=i, a=sub_items[0], b=sub_items[1], c=c)
     new_str += snippets[type]['End'].format(r=r,t=today)
