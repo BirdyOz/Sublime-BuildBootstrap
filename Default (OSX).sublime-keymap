@@ -1,0 +1,61 @@
+[
+    {
+        "keys": ["ctrl+super+option+b","ctrl+super+option+a"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Accordion"
+        }
+    },
+    {
+        "keys": ["ctrl+super+option+b","ctrl+super+option+c"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Cards"
+        }
+    },
+    {
+        "keys":  ["ctrl+super+option+b","ctrl+super+option+t"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "V-tabs"
+        }
+    },
+    {
+        "keys":  ["ctrl+super+option+b","ctrl+super+option+h"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "H-tabs"
+        }
+    },
+    {
+        "keys":  ["ctrl+super+option+b","ctrl+super+option+d"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Deck"
+        }
+    },
+    {
+        "keys":  ["ctrl+super+option+b","ctrl+super+option+r"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Rainbow"
+        }
+    },
+    {
+        "keys":  ["ctrl+super+option+b","ctrl+super+option+s"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Show"
+        }
+    }
+]
+
+
+

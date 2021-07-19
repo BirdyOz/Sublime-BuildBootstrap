@@ -1,0 +1,58 @@
+[
+    {
+        "caption": "BirdyOz - Build Bootstrap (Accordion)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Accordion"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Cards)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Cards"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Vertical Tabs)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "V-tabs"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Horizontal Tabs)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "H-tabs"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Deck)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Deck"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Show)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Show"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Rainbow)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Rainbow"
+        }
+    }
+]

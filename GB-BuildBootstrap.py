@@ -6,13 +6,13 @@ today = date.today()
 snippets = {
     "Accordion":
         {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Accordion, ID = {r}, date = {t} --> <div class="accordion" id="accordion-{r}">',
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of Accordion, ID = {r}, date = {t} --> <div class="accordion" id="accordion-{r}">',
         "Repeat": '\n\n<!-- Start of Item {i} --> <div class="card"> <div class="card-header" id="heading-{i}-{r}"> <h5 class="mb-0"> <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{i}-{r}" aria-expanded="false" aria-controls="collapse-{i}-{r}"> {a} </button> </h5> </div> <div id="collapse-{i}-{r}" class="collapse" aria-labelledby="heading-{i}-{r}" data-parent="#accordion-{r}"> <div class="card-body">{b}</div> </div> </div> \n<!-- End of Item {i} --> ',
         "End": '</div> \n<!-- End of Accordion, ID = {r}, date = {t} --> \n\n'
         },
     "V-tabs":
     {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Vertical tabs, ID = {r}, date = {t} --> <div class="row"> <div class="col-3 no-gutters">',
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of Vertical tabs, ID = {r}, date = {t} --> <div class="row"> <div class="col-3 no-gutters">',
         "Nav-Start": '<div class="nav flex-column nav-pills" id="vtabs-{r}" role="tablist" aria-orientation="vertical">',
         "Nav-Repeat": '<a class="nav-link{c}" id="vtabs-{i}-{r}-tab" data-toggle="pill" href="#vtabs-{i}-{r}" role="tab" aria-controls="vtabs-{i}-{r}" aria-selected="{f}">{a}</a>',
         "Nav-End": '</div> </div> <div class="col-9 no-gutters"> <div class="tab-content" id="v-tabs-tabContent">',
@@ -21,7 +21,7 @@ snippets = {
     },
     "H-tabs":
     {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Horizontal tabs, ID = {r}, date = {t} -->',
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of Horizontal tabs, ID = {r}, date = {t} -->',
         "Nav-Start": '<ul class="nav nav-pills mb-0" id="htabs-{r}" role="tablist">',
         "Nav-Repeat": '<li class="nav-item"><a class="nav-link{c}" id="htabs-{i}-{r}-tab" data-toggle="pill" href="#htabs-{i}-{r}" role="tab" aria-controls="htabs-{i}-{r}" aria-selected="{f}">{a}</a></li>',
         "Nav-End": '</ul><div class="tab-content card" id="pills-tabContent">',
@@ -36,7 +36,7 @@ snippets = {
     },
     "Card-Template":
     {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Card {n}, ID = {r}, date = {t} --> <div class="{cs}">',
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of Card {n}, ID = {r}, date = {t} --> <div class="{cs}">',
         "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}"> <div class="card-header"> <h5 class="card-title{ch}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
         "End": '</div> \n<!-- End of Card {n}, ID = {r}, date = {t} -->\n\n'
     },
