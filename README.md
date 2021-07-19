@@ -50,14 +50,19 @@ Please ensure that you have this plugin installed, **prior to running BuildBoots
 
 ## Keyboard shortcuts (Mac) - Sorry Windows users, feel free to set your own.
 
-The use a chain of two commands, in quick succession, eg:
+Thes use a chain of two commands, in quick succession, eg:
 
+For Build Accordion:
 
+1. Hold down the three keys <kbd>⌃</kbd> + <kbd>⌥</kbd> + <kbd>⌘</kbd> - and keep them held down
+2. Press <kbd>B</kbd>, then <kbd>A</kbd> in quick succession
 
-* ⌃⌥⌘**B**, ⌃⌥⌘**A**  - **B**uild Accordion
-* ⌃⌥⌘**B**, ⌃⌥⌘**T**  - **B**uild **T**abs (Vertical)
-* ⌃⌥⌘**B**, ⌃⌥⌘**H**  - **B**uild Tabs (**H**orizontal)
-* ⌃⌥⌘**B**, ⌃⌥⌘**S**  - **B**uild **S**how/Hide
-* ⌃⌥⌘**B**, ⌃⌥⌘**C**  - **B**uild **C**ards
-* ⌃⌥⌘**B**, ⌃⌥⌘**D**  - **B**uild Card **D**eck
-* ⌃⌥⌘**B**, ⌃⌥⌘**R**  - **B**uild **R**ainbow Cards
+### Shortcuts
+
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>A</kbd>  - **B**uild **A**ccordion
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>T</kbd>  - **B**uild **T**abs (Vertical)
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>H</kbd>  - **B**uild Tabs (**H**orizontal)
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>S</kbd>  - **B**uild **S**how/Hide
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd>  - **B**uild **C**ards
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>D</kbd>  - **B**uild Card **D**eck
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>R</kbd>  - **B**uild **R**ainbow Cards
