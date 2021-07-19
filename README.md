@@ -23,6 +23,15 @@ This SublimeText plugin allows you to rapidly develop Bootstrap interface elemen
 
 [Build Bootstrap interface elements for Sublime Text (08:12)](https://www.youtube.com/embed/Z8MGYE1QJCc?rel=0)
 
+## Installation
+
+### Download Manually (only option available currently, sorry)
+
+* Download the files using the [GitHub 'Download Zip' option](https://github.com/BirdyOz/Sublime-BuildBanner/archive/refs/heads/master.zip)
+* Unzip the files and rename the folder to `BuildBootstrap`
+* Find your `Packages` directory using the ST menu item  `Preferences -> Browse Packages...`
+* Copy the folder into your Sublime Text `Packages` directory
+
 ## Dependancies
 
 This plugin invokes functions from other Sublime Text Packages:
