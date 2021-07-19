@@ -28,39 +28,43 @@ snippets = {
         "Repeat": '\n\n<!-- Start of Item {i} --> <div class="tab-pane p-3 fade{c}" id="htabs-{i}-{r}" role="tabpanel" aria-labelledby="htabs-{i}-{r}"> <h4>{a}</h4> {b} </div> \n<!-- End of Item {i} --> ',
         "End": '</div> \n<!-- End of Horizontal tabs, ID = {r}, date = {t} --> \n\n'
     },
-    "Cards":
-    {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Card Group, ID = {r}, date = {t} --> <div class="card-group">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card"> <div class="card-header"> <h5>{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
-        "End": '</div> \n<!-- End of Card Group, ID = {r}, date = {t} -->\n\n'
-    },
-    "Deck":
-    {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Card Deck, ID = {r}, date = {t} --> <div class="card-deck">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card"> <div class="card-header"> <h5>{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
-        "End": '</div> \n<!-- End of Card Deck, ID = {r}, date = {t} -->\n\n'
-    },
-    "Rainbow":
-    {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Rainbow Card Deck, ID = {r}, date = {t} --> <div class="card-deck">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card text-white {c}"> <div class="card-header"> <h5 class="text-white">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
-        "End": '</div> \n<!-- End of Rainbow Card Deck, ID = {r}, date = {t} -->\n\n'
-    },
-    "Columns":
-    {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Card Column, ID = {r}, date = {t} --> <div class="card-columns">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card"> <div class="card-header"> <h5>{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
-        "End": '</div> \n<!-- End of Card Column, ID = {r}, date = {t} -->\n\n'
-    },
     "Show":
     {
         "Start": '\n\n<!-- Start of Show/Hide interface, ID = {r}, date = {t} -->',
-        "Repeat": '<p> <a class="btn btn-primary" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}"> More - {a} </a> </p>\n<div class="collapse" id="show-{r}"> <div class="card card-body"><h5>{a}</h5>\n{b} <small><a class="btn-block btn btn-sm btn-light" class="text-center" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">Hide</a></small> </div> </div>',
+        "Repeat": '<p> <a class="btn btn-primary" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">{a}</a> </p>\n<div class="collapse" id="show-{r}"> <div class="card card-body"><h5>{a}</h5>\n{b} <small><a class="btn-block btn btn-sm btn-light" class="text-center" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">Hide</a></small> </div> </div>',
         "End": ' \n<!-- End of Show/Hide interface, ID = {r}, date = {t} -->\n\n'
+    },
+    "Card-Template":
+    {
+        "Start": '\n<div class="clearfix container-fluid"></div>\n<!-- Start of Card {n}, ID = {r}, date = {t} --> <div class="{cs}">',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}"> <div class="card-header"> <h5 class="card-title{ch}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
+        "End": '</div> \n<!-- End of Card {n}, ID = {r}, date = {t} -->\n\n'
+    },
+    "Cards":
+    {
+        "Card-Start": 'card-group',
+        "Card-Repeat": '',
+        "Card-Heading": '',
+    },
+    "Deck":
+    {
+        "Card-Start": 'card-deck',
+        "Card-Repeat": '',
+        "Card-Heading": '',
+    },
+    "Rainbow":
+    {
+        "Card-Start": 'card-deck',
+        "Card-Repeat": ' text-white',
+        "Card-Heading": ' text-white',
+    },
+    "Columns":
+    {
+        "Card-Start": 'card-columns',
     }
 }
 
-colours = ('bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-info', 'bg-light', 'bg-warning', 'bg-dark')
+colours = ('bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-info', 'bg-dark')
 
 class BuildBootstrapCommand(sublime_plugin.TextCommand):
     def run(self, edit, type):
@@ -75,11 +79,25 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 self.view.sel().clear()
 
 def bs_parser(string, type):
+    cs = '' #Card-Start
+    cr = '' #Card-Row
+    ch = '' #Card-Header
+    cc = '' #Card-Colour
     name = type
+    print("name: ", name)
     items = string.split('<h5>')
-    # if I chose cards or deck and there are more than 3 cards, change to column view
-    if (type == "Cards" or type == "Deck") and len(items) > 4:
-        type = 'Columns'
+    # if I am a type of Card group
+    if (type == "Cards" or type == "Deck" or type == "Rainbow"):
+        cs = snippets[type]['Card-Start']
+        print("cs: ", cs)
+        cr = snippets[type]['Card-Repeat']
+        print("cr: ", cr)
+        ch = snippets[type]['Card-Heading']
+        print("ch: ", ch)
+        if len(items) > 4:
+            cs = snippets['Columns']['Card-Start']
+            print("cs: ", cs)
+        type = 'Card-Template'
     new_str = items[0] # Content prior to first <h5>
     # Create random ID
     r = random_key(6)
@@ -88,10 +106,10 @@ def bs_parser(string, type):
         i = str (idx)
         if idx == 0:
             # Built starting BS HTML
-            new_str += snippets[type]['Start'].format(r=r,t=today)
+            new_str += snippets[type]['Start'].format(r=r,t=today,n=name,cs=cs)
             # If I have top level nav (V-tabs or H-tabs)
             if "Nav-Start" in snippets[type].keys():
-                new_str += snippets[type]['Nav-Start'].format(r=r)
+                new_str += snippets[type]['Nav-Start'].format(r=r,n=name)
                 for idx, item in enumerate(items):
                     i = str (idx)
                     c = ''
@@ -114,12 +132,11 @@ def bs_parser(string, type):
                 print("name: ", name)
                 n = idx%len(colours) - 1
                 print("n: ", n)
-                colour = colours[n]
-                print("colour: ", colour)
-                c=colour
+                cc = " " + colours[n]
 
-            new_str += snippets[type]['Repeat'].format(r=r, i=i, a=sub_items[0], b=sub_items[1], c=c)
-    new_str += snippets[type]['End'].format(r=r,t=today)
+            new_str += snippets[type]['Repeat'].format(r=r, i=i, a=sub_items[0], b=sub_items[1], c=c,cr=cr,ch=ch,cc=cc)
+    new_str += snippets[type]['End'].format(r=r,t=today,n=name)
+    print("new_str: ", new_str)
     return new_str
 
 def random_key(length):
