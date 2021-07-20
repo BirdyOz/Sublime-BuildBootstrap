@@ -8,11 +8,11 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Bootstrap (Cards)",
+        "caption": "BirdyOz - Build Bootstrap (Card Group)",
         "command": "build_bootstrap",
         "args":
         {
-            "type": "Cards"
+            "type": "Card-Group"
         }
     },
     {
@@ -36,7 +36,7 @@
         "command": "build_bootstrap",
         "args":
         {
-            "type": "Deck"
+            "type": "Card-Deck"
         }
     },
     {
@@ -52,7 +52,15 @@
         "command": "build_bootstrap",
         "args":
         {
-            "type": "Rainbow"
+            "type": "Card-Rainbow"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Bootstrap (Card Deck, with images)",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Card-Images"
         }
     }
 ]

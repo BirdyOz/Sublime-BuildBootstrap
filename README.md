@@ -7,7 +7,7 @@ This SublimeText plugin allows you to rapidly develop Bootstrap interface elemen
 * Accordions
 * Tabs - both vertical and horizontal
 * Show/hide
-* Various card layouts and colours - cards, decks, rainbow and columns
+* Various card layouts and colours - Card groups, Card decks (with and without card images), rainbow cards and columns
 
 
 ![Screencapture](tests/screencap.png)
@@ -63,6 +63,7 @@ For Build Accordion:
 * <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>T</kbd>  - **B**uild **T**abs (Vertical)
 * <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>H</kbd>  - **B**uild Tabs (**H**orizontal)
 * <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>S</kbd>  - **B**uild **S**how/Hide
-* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd>  - **B**uild **C**ards
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd>  - **B**uild **C**ard Group
 * <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>D</kbd>  - **B**uild Card **D**eck
+* <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd>  - **B**uild Card Deck, with **I**mages
 * <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>, <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>R</kbd>  - **B**uild **R**ainbow Cards

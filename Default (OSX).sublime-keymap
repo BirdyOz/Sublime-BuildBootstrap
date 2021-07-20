@@ -12,7 +12,7 @@
         "command": "build_bootstrap",
         "args":
         {
-            "type": "Cards"
+            "type": "Card-Group"
         }
     },
     {
@@ -36,7 +36,7 @@
         "command": "build_bootstrap",
         "args":
         {
-            "type": "Deck"
+            "type": "Card-Deck"
         }
     },
     {
@@ -44,7 +44,15 @@
         "command": "build_bootstrap",
         "args":
         {
-            "type": "Rainbow"
+            "type": "Card-Rainbow"
+        }
+    },
+    {
+        "keys":  ["ctrl+super+option+b","ctrl+super+option+i"],
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Card-Images"
         }
     },
     {

@@ -36,29 +36,39 @@ snippets = {
     },
     "Card-Template":
     {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of Card {n}, ID = {r}, date = {t} --> <div class="{cs}">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}"> <div class="card-header"> <h5 class="card-title{ch}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="{cs}">',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci}<div class="card-header"> <h5 class="card-title{ch}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
         "End": '</div> \n<!-- End of Card {n}, ID = {r}, date = {t} -->\n\n'
     },
-    "Cards":
+    "Card-Group":
     {
         "Card-Start": 'card-group',
+        "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": '',
         "Card-Heading": '',
     },
-    "Deck":
+    "Card-Deck":
     {
         "Card-Start": 'card-deck',
+        "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": '',
         "Card-Heading": '',
     },
-    "Rainbow":
+    "Card-Images":
     {
         "Card-Start": 'card-deck',
+        "Card-Img":'\n<!-- Start of Card Image --> \n<img class="img-fluid" src="https://via.placeholder.com/1024x768?text=Replace+Me" alt="">\n <!-- End of Card Image -->\n',
+        "Card-Repeat": '',
+        "Card-Heading": '',
+    },
+    "Card-Rainbow":
+    {
+        "Card-Start": 'card-deck',
+        "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": ' text-white',
         "Card-Heading": ' text-white',
     },
-    "Columns":
+    "Card-Columns":
     {
         "Card-Start": 'card-columns',
     }
@@ -83,19 +93,22 @@ def bs_parser(string, type):
     cr = '' #Card-Row
     ch = '' #Card-Header
     cc = '' #Card-Colour
+    ci = '' #Card-Image
     name = type
     print("name: ", name)
     items = string.split('<h5>')
     # if I am a type of Card group
-    if (type == "Cards" or type == "Deck" or type == "Rainbow"):
+    if (type == "Card-Group" or type == "Card-Deck" or type == "Card-Images" or type == "Card-Rainbow"):
         cs = snippets[type]['Card-Start']
         print("cs: ", cs)
         cr = snippets[type]['Card-Repeat']
         print("cr: ", cr)
+        ci = snippets[type]['Card-Img']
+        print("ci: ", ci)
         ch = snippets[type]['Card-Heading']
         print("ch: ", ch)
         if len(items) > 4:
-            cs = snippets['Columns']['Card-Start']
+            cs = snippets['Card-Columns']['Card-Start']
             print("cs: ", cs)
         type = 'Card-Template'
     new_str = items[0] # Content prior to first <h5>
@@ -128,13 +141,13 @@ def bs_parser(string, type):
             if idx == 1: # If I'm the first item
                 c = ' active show'
             # rainbow items
-            if name == 'Rainbow':
+            if name == 'Card-Rainbow':
                 print("name: ", name)
                 n = idx%len(colours) - 1
                 print("n: ", n)
                 cc = " " + colours[n]
 
-            new_str += snippets[type]['Repeat'].format(r=r, i=i, a=sub_items[0], b=sub_items[1], c=c,cr=cr,ch=ch,cc=cc)
+            new_str += snippets[type]['Repeat'].format(r=r, i=i, a=sub_items[0], b=sub_items[1], c=c,cr=cr,ch=ch,cc=cc,ci=ci)
     new_str += snippets[type]['End'].format(r=r,t=today,n=name)
     print("new_str: ", new_str)
     return new_str
