@@ -50,9 +50,7 @@ Please ensure that you have this plugin installed, **prior to running BuildBoots
 
 ## Keyboard shortcuts (Mac) - Sorry Windows users, feel free to set your own.
 
-Thes use a chain of two commands, in quick succession, eg:
-
-For Build Accordion:
+Thes use a chain of two commands, in quick succession, eg: for For **B**uild **A**ccordion:
 
 1. Hold down the three keys <kbd>⌃</kbd> + <kbd>⌥</kbd> + <kbd>⌘</kbd> - and keep them held down
 2. Press <kbd>B</kbd>, then <kbd>A</kbd> in quick succession
