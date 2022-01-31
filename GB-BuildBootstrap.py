@@ -45,28 +45,28 @@ snippets = {
         "Card-Start": 'card-group',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": '',
-        "Card-Heading": '',
+        "Card-Header": '',
     },
     "Card-Deck":
     {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": '',
-        "Card-Heading": '',
+        "Card-Header": '',
     },
     "Card-Images":
     {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- Start of Card Image --> \n<img class="img-fluid" src="https://via.placeholder.com/1024x768?text=Replace+Me" alt="">\n <!-- End of Card Image -->\n',
         "Card-Repeat": '',
-        "Card-Heading": '',
+        "Card-Header": '',
     },
     "Card-Rainbow":
     {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": ' text-white',
-        "Card-Heading": ' text-white',
+        "Card-Header": ' text-white',
     },
     "Card-Columns":
     {
@@ -91,66 +91,66 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 self.view.sel().clear()
 
 def bs_parser(string, type):
-    cs = '' #Card-Start
-    cr = '' #Card-Row
-    ch = '' #Card-Header
-    cc = '' #Card-Colour
+    cardStart = ''
+    cardRepeat = '' #Card-Row
+    cardHeader = '' #Card-Header
+    cardColour = '' #Card-Colour
     ci = '' #Card-Image
     name = type
     print("name: ", name)
     items = string.split('<h5>')
     # if I am a type of Card group
     if (type == "Card-Group" or type == "Card-Deck" or type == "Card-Images" or type == "Card-Rainbow"):
-        cs = snippets[type]['Card-Start']
-        print("cs: ", cs)
-        cr = snippets[type]['Card-Repeat']
-        print("cr: ", cr)
+        cardStart = snippets[type]['Card-Start']
+        print("cardStart: ", cardStart)
+        cardRepeat = snippets[type]['Card-Repeat']
+        print("cardRepeat: ", cardRepeat)
         ci = snippets[type]['Card-Img']
         print("ci: ", ci)
-        ch = snippets[type]['Card-Heading']
-        print("ch: ", ch)
+        cardHeader = snippets[type]['Card-Header']
+        print("cardHeader: ", cardHeader)
         if len(items) > 4:
-            cs = snippets['Card-Columns']['Card-Start']
-            print("cs: ", cs)
+            cardStart = snippets['Card-Columns']['Card-Start']
+            print("cardStart: ", cardStart)
         type = 'Card-Template'
     new_str = items[0] # Content prior to first <h5>
     # Create random ID
-    r = random_key(6)
+    randomKey = random_key(6)
     # loop thorough items (as defind by <h5>)
     for idx, item in enumerate(items):
         i = str (idx)
         if idx == 0:
             # Built starting BS HTML
-            new_str += snippets[type]['Start'].format(r=r,t=today,n=name,cs=cs)
+            new_str += snippets[type]['Start'].format(r=randomKey,t=today,n=name,cs=cardStart)
             # If I have top level nav (V-tabs or H-tabs)
             if "Nav-Start" in snippets[type].keys():
-                new_str += snippets[type]['Nav-Start'].format(r=r,n=name)
+                new_str += snippets[type]['Nav-Start'].format(r=randomKey,n=name)
                 for idx, item in enumerate(items):
                     i = str (idx)
-                    c = ''
+                    tabState = ''
                     f = 'false'
                     sub_items = item.split('</h5>')
                     if idx == 1: # If I'm the first item
-                        c = ' active show'
+                        tabState = ' active show'
                         f = 'true'
                     if idx > 0:
-                        new_str += snippets[type]['Nav-Repeat'].format(r=r, i=i, a=sub_items[0], f=f,c=c)
-                new_str += snippets[type]['Nav-End'].format(r=r)
+                        new_str += snippets[type]['Nav-Repeat'].format(r=randomKey, i=i, a=sub_items[0], f=f,c=tabState)
+                new_str += snippets[type]['Nav-End'].format(r=randomKey)
         else:
             # Build repeating items
             sub_items = item.split('</h5>')
-            c = ''
+            tabState = ''
             if idx == 1: # If I'm the first item
-                c = ' active show'
+                tabState = ' active show'
             # rainbow items
             if name == 'Card-Rainbow':
                 print("name: ", name)
                 n = idx%len(colours) - 1
                 print("n: ", n)
-                cc = " " + colours[n]
+                cardColour = " " + colours[n]
 
-            new_str += snippets[type]['Repeat'].format(r=r, i=i, a=sub_items[0], b=sub_items[1], c=c,cr=cr,ch=ch,cc=cc,ci=ci)
-    new_str += snippets[type]['End'].format(r=r,t=today,n=name)
+            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,cc=cardColour,ci=ci)
+    new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
     print("new_str: ", new_str)
     return new_str
 
