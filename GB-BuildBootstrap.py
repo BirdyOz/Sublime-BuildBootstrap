@@ -77,7 +77,9 @@ snippets = {
 colours = ('bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-info', 'bg-dark')
 
 class BuildBootstrapCommand(sublime_plugin.TextCommand):
-    def run(self, edit, type):
+    def run(self, edit, type, properties=''):
+        print("type: ", type)
+        print("properties: ", properties)
         view = self.view
         for region in view.sel():
             if not region.empty():
