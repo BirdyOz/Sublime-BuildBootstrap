@@ -44,22 +44,16 @@ snippets = {
     {
         "Card-Start": 'card-group',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
-        "Card-Repeat": '',
-        "Card-Header": '',
     },
     "Card-Deck":
     {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
-        "Card-Repeat": '',
-        "Card-Header": '',
     },
     "Card-Images":
     {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- Start of Card Image --> \n<img class="img-fluid" src="https://via.placeholder.com/1024x768?text=Replace+Me" alt="">\n <!-- End of Card Image -->\n',
-        "Card-Repeat": '',
-        "Card-Header": '',
     },
     "Card-Rainbow":
     {
@@ -92,17 +86,22 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
 
 def bs_parser(string, type):
 
-    cardStart = snippets[type].get('Card-Start','')
-    print("cardStart: ", cardStart)
-    cardRepeat = snippets[type].get('Card-Repeat','')
-    print("cardRepeat: ", cardRepeat)
-    cardImg = snippets[type].get('Card-Img','')
-    print("cardImg: ", cardImg)
-    cardHeader = snippets[type].get('Card-Header','')
-    print("cardHeader: ", cardHeader)
     name = type
-    print("name: ", name)
     items = string.split('<h5>')
+
+    if (type.startswith("Card-")):
+        # Initiate Card properties.   Set as blank if undefined
+        cardStart = snippets[type].get('Card-Start','')
+        print("cardStart: ", cardStart)
+        cardRepeat = snippets[type].get('Card-Repeat','')
+        print("cardRepeat: ", cardRepeat)
+        cardImg = snippets[type].get('Card-Img','')
+        print("cardImg: ", cardImg)
+        cardHeader = snippets[type].get('Card-Header','')
+        print("cardHeader: ", cardHeader)
+        cardColour = ''
+
+
     # if I am a type of Card group
     if (type == "Card-Group" or type == "Card-Deck" or type == "Card-Images" or type == "Card-Rainbow"):
         if len(items) > 4:
