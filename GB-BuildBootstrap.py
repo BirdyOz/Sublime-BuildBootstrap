@@ -91,24 +91,20 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 self.view.sel().clear()
 
 def bs_parser(string, type):
-    cardStart = ''
-    cardRepeat = '' #Card-Row
-    cardHeader = '' #Card-Header
-    cardColour = '' #Card-Colour
-    ci = '' #Card-Image
+
+    cardStart = snippets[type].get('Card-Start','')
+    print("cardStart: ", cardStart)
+    cardRepeat = snippets[type].get('Card-Repeat','')
+    print("cardRepeat: ", cardRepeat)
+    cardImg = snippets[type].get('Card-Img','')
+    print("cardImg: ", cardImg)
+    cardHeader = snippets[type].get('Card-Header','')
+    print("cardHeader: ", cardHeader)
     name = type
     print("name: ", name)
     items = string.split('<h5>')
     # if I am a type of Card group
     if (type == "Card-Group" or type == "Card-Deck" or type == "Card-Images" or type == "Card-Rainbow"):
-        cardStart = snippets[type]['Card-Start']
-        print("cardStart: ", cardStart)
-        cardRepeat = snippets[type]['Card-Repeat']
-        print("cardRepeat: ", cardRepeat)
-        ci = snippets[type]['Card-Img']
-        print("ci: ", ci)
-        cardHeader = snippets[type]['Card-Header']
-        print("cardHeader: ", cardHeader)
         if len(items) > 4:
             cardStart = snippets['Card-Columns']['Card-Start']
             print("cardStart: ", cardStart)
@@ -149,7 +145,7 @@ def bs_parser(string, type):
                 print("n: ", n)
                 cardColour = " " + colours[n]
 
-            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,cc=cardColour,ci=ci)
+            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,cc=cardColour,ci=cardImg)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
     print("new_str: ", new_str)
     return new_str
