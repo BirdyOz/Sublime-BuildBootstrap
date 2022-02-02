@@ -54,14 +54,6 @@
         {
             "type": "Card-Images"
         }
-    },
-    {
-        "keys":  ["ctrl+super+option+b","ctrl+super+option+s"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Show"
-        }
     }
 ]
 

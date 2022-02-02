@@ -42,9 +42,9 @@ snippets = {
     },
     "Box-Template":
     {
-        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="{cs}">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci} <div class="card-body"><h4 class="card-title{ct}">{ti}{tp}{a}{ts}</h4>{b}</div> </div> \n<!-- End of card {i} --> ',
-        "End": '</div> \n<!-- End of {n}, ID = {r}, date = {t} -->\n\n'
+        "Start": '',
+        "Repeat": '\n\n<!-- Start of {n}, date = {t} --> \n<div class="clearfix container-fluid"></div>\n<div class="card{cr}{cc}">{ci} <div class="card-body"><h4 class="card-title{ct}"><i aria-hidden="true" class="fa {ti}"></i> {tp}{a}{ts}</h4>{b}\n{bf}</div> </div> \n<!-- End of {n}, date = {t} -->\n\n',
+        "End": ''
     },
     "Card-Group": {
         "Card-Start": 'card-group',
@@ -108,10 +108,33 @@ snippets = {
                 "Card-Title": " text-white",
             },
     "Box-Think": {
-                "Card-Start": "",
                 "Card-Repeat": " mt-1 mb-1",
                 "Card-Title": " text-success",
-                "Title-Icon": '<i aria-hidden="true" class="fa fa-lightbulb-o"></i> ',
+                "Title-Icon": 'fa-lightbulb-o',
+            },
+    "Box-Read": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Card-Title": " text-info",
+                "Title-Icon": 'fa-book',
+            },
+    "Box-Important": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Card-Title": " text-danger",
+                "Title-Icon": 'fa-exclamation-triangle',
+            },
+    "Box-Reflect": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Title-Prefix": "Reflection Activity - ",
+                "Card-Title": " text-danger",
+                "Title-Icon": 'fa-tasks',
+                "Box-Footer": '<div class="alert alert-warning" role="alert"> Record your responses in your <em>Learner\'s Worksheet</em>. Bring this document with you to your next face-to-face class to discuss with your teacher and fellow students. </div>'
+            },
+    "Box-Discuss": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Title-Prefix": "Discussion Activity - ",
+                "Card-Title": " text-danger",
+                "Title-Icon": 'fa-tasks',
+                "Box-Footer": '<div class="alert alert-warning" role="alert"> Record your responses in the [exact name of discussion activity] forum that follows this content. </div>'
             }
 }
 
@@ -154,6 +177,8 @@ def bs_parser(string, type):
     print("titleSuffix: ", titleSuffix)
     titleIcon = snippets[type].get('Title-Icon','')
     print("titleIcon: ", titleIcon)
+    boxFooter = snippets[type].get('Box-Footer','')
+    print("boxFooter: ", boxFooter)
 
     #if properties are defined, use these
 
@@ -191,7 +216,7 @@ def bs_parser(string, type):
                         tabState = ' active show'
                         f = 'true'
                     if idx > 0:
-                        new_str += snippets[type]['Nav-Repeat'].format(r=randomKey, i=i, a=sub_items[0], f=f,c=tabState)
+                        new_str += snippets[type]['Nav-Repeat'].format(r=randomKey, i=i, a=sub_items[0], f=f,c=tabState,n=name)
                 new_str += snippets[type]['Nav-End'].format(r=randomKey)
         else:
             # Build repeating items
@@ -205,7 +230,7 @@ def bs_parser(string, type):
                 cardColour = " " + colours[n]
                 print("cardColour: ", cardColour)
 
-            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=titlePrefix,ts=titleSuffix)
+            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=titlePrefix,ts=titleSuffix,n=name,t=today,bf=boxFooter)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
 
     # print("new_str: ", new_str)

@@ -1,6 +1,6 @@
 [
     {
-        "caption": "BirdyOz - Build Interface (Accordion)",
+        "caption": "BirdyOz - Build Bootstrap (Accordion)",
         "command": "build_bootstrap",
         "args":
         {
@@ -8,7 +8,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Card Group)",
+        "caption": "BirdyOz - Build Bootstrap (Card Group)",
         "command": "build_bootstrap",
         "args":
         {
@@ -16,7 +16,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Vertical Tabs)",
+        "caption": "BirdyOz - Build Bootstrap (Vertical Tabs)",
         "command": "build_bootstrap",
         "args":
         {
@@ -24,7 +24,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Horizontal Tabs)",
+        "caption": "BirdyOz - Build Bootstrap (Horizontal Tabs)",
         "command": "build_bootstrap",
         "args":
         {
@@ -32,7 +32,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Deck)",
+        "caption": "BirdyOz - Build Bootstrap (Deck)",
         "command": "build_bootstrap",
         "args":
         {
@@ -40,7 +40,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Show)",
+        "caption": "BirdyOz - Build Bootstrap (Show)",
         "command": "build_bootstrap",
         "args":
         {
@@ -48,7 +48,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Rainbow)",
+        "caption": "BirdyOz - Build Bootstrap (Rainbow)",
         "command": "build_bootstrap",
         "args":
         {
@@ -56,7 +56,7 @@
         }
     },
     {
-        "caption": "BirdyOz - Build Interface (Card Deck, with images)",
+        "caption": "BirdyOz - Build Bootstrap (Card Deck, with images)",
         "command": "build_bootstrap",
         "args":
         {
@@ -133,6 +133,38 @@
         "args":
         {
             "type": "Box-Think"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Box - Read",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Box-Read"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Box - Important",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Box-Important"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Box - Reflection Activity",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Box-Reflect"
+        }
+    },
+    {
+        "caption": "BirdyOz - Build Box - Discussion Activity",
+        "command": "build_bootstrap",
+        "args":
+        {
+            "type": "Box-Discuss"
         }
     }
 ]
