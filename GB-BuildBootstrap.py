@@ -37,7 +37,7 @@ snippets = {
     "Card-Template":
     {
         "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="{cs}">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci}<div class="card-header"> <h5 class="card-title{ch}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci}<div class="card-header{ch}"> <h5 class="card-title{ct}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
         "End": '</div> \n<!-- End of Card {n}, ID = {r}, date = {t} -->\n\n'
     },
     "Card-Group":
@@ -60,7 +60,7 @@ snippets = {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": ' text-white',
-        "Card-Header": ' text-white',
+        "Card-Title": ' text-white',
     },
     "Card-Columns":
     {
@@ -80,26 +80,27 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 s = view.substr(region) # string of selected region
                 t = bs_parser(s,type) # send string to parser
                 view.replace(edit, region, t) # Update page content
-                self.view.run_command("select_all")
-                self.view.run_command("htmlprettify")
-                self.view.sel().clear()
+                # self.view.run_command("select_all")
+                # self.view.run_command("htmlprettify")
+                # self.view.sel().clear()
 
 def bs_parser(string, type):
 
     name = type
     items = string.split('<h5>')
 
-    if (type.startswith("Card-")):
-        # Initiate Card properties.   Set as blank if undefined
-        cardStart = snippets[type].get('Card-Start','')
-        print("cardStart: ", cardStart)
-        cardRepeat = snippets[type].get('Card-Repeat','')
-        print("cardRepeat: ", cardRepeat)
-        cardImg = snippets[type].get('Card-Img','')
-        print("cardImg: ", cardImg)
-        cardHeader = snippets[type].get('Card-Header','')
-        print("cardHeader: ", cardHeader)
-        cardColour = ''
+    # Initiate Card properties.   Set as blank if undefined
+    cardStart = snippets[type].get('Card-Start','')
+    print("cardStart: ", cardStart)
+    cardRepeat = snippets[type].get('Card-Repeat','')
+    print("cardRepeat: ", cardRepeat)
+    cardImg = snippets[type].get('Card-Img','')
+    print("cardImg: ", cardImg)
+    cardTitle = snippets[type].get('Card-Title','')
+    print("cardTitle: ", cardTitle)
+    cardColour = snippets[type].get('Card-Colour','')
+    print("cardColour: ", cardColour)
+
 
 
     # if I am a type of Card group
@@ -144,7 +145,7 @@ def bs_parser(string, type):
                 print("n: ", n)
                 cardColour = " " + colours[n]
 
-            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,cc=cardColour,ci=cardImg)
+            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch='',ct=cardTitle,cc=cardColour,ci=cardImg)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
     print("new_str: ", new_str)
     return new_str
