@@ -37,56 +37,102 @@ snippets = {
     "Card-Template":
     {
         "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="{cs}">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci}<div class="card-header{ch}"> <h5 class="card-title{ct}">{a}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
-        "End": '</div> \n<!-- End of Card {n}, ID = {r}, date = {t} -->\n\n'
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci}<div class="card-header{ch}"><h5 class="card-title{ct}">{ti}{tp}{a}{ts}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
+        "End": '</div> \n<!-- End of {n}, ID = {r}, date = {t} -->\n\n'
     },
-    "Card-Group":
+    "Box-Template":
     {
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="{cs}">',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci} <div class="card-body"><h4 class="card-title{ct}">{ti}{tp}{a}{ts}</h4>{b}</div> </div> \n<!-- End of card {i} --> ',
+        "End": '</div> \n<!-- End of {n}, ID = {r}, date = {t} -->\n\n'
+    },
+    "Card-Group": {
         "Card-Start": 'card-group',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
     },
-    "Card-Deck":
-    {
+    "Card-Deck": {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
     },
-    "Card-Images":
-    {
+    "Card-Images": {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- Start of Card Image --> \n<img class="img-fluid" src="https://via.placeholder.com/1024x768?text=Replace+Me" alt="">\n <!-- End of Card Image -->\n',
     },
-    "Card-Rainbow":
-    {
+    "Card-Rainbow": {
         "Card-Start": 'card-deck',
         "Card-Img":'\n<!-- OPTIONAL - Insert Card image here if needed -->\n',
         "Card-Repeat": ' text-white',
         "Card-Title": ' text-white',
     },
-    "Card-Columns":
-    {
+    "Card-Columns": {
         "Card-Start": 'card-columns',
-    }
+    },
+    "Card-Primary": {
+                "Card-Repeat": " mt-1 mb-1 border-primary",
+                "Card-Header": " bg-primary",
+                "Card-Title": " text-white",
+            },
+    "Card-Secondary": {
+                "Card-Repeat": " mt-1 mb-1 border-secondary",
+                "Card-Header": " bg-secondary",
+                "Card-Title": " text-white",
+            },
+    "Card-Success": {
+                "Card-Repeat": " mt-1 mb-1 border-success",
+                "Card-Header": " bg-success",
+                "Card-Title": " text-white",
+            },
+    "Card-Danger": {
+                "Card-Repeat": " mt-1 mb-1 border-danger",
+                "Card-Header": " bg-danger",
+                "Card-Title": " text-white",
+            },
+    "Card-Warning": {
+                "Card-Repeat": " mt-1 mb-1 border-warning",
+                "Card-Header": " bg-warning",
+                "Card-Title": " text-dark",
+            },
+    "Card-Info": {
+                "Card-Repeat": " mt-1 mb-1 border-info",
+                "Card-Header": " bg-info",
+                "Card-Title": " text-white",
+            },
+    "Card-Light": {
+                "Card-Repeat": " mt-1 mb-1 border-light",
+                "Card-Header": " bg-light",
+                "Card-Title": " text-dark",
+            },
+    "Card-Dark": {
+                "Card-Repeat": " mt-1 mb-1 border-dark",
+                "Card-Header": " bg-dark",
+                "Card-Title": " text-white",
+            },
+    "Box-Think": {
+                "Card-Start": "",
+                "Card-Repeat": " mt-1 mb-1",
+                "Card-Title": " text-success",
+                "Title-Icon": '<i aria-hidden="true" class="fa fa-lightbulb-o"></i> ',
+            }
 }
 
 colours = ('bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-info', 'bg-dark')
 
 class BuildBootstrapCommand(sublime_plugin.TextCommand):
-    def run(self, edit, type, properties=''):
-        print("type: ", type)
-        print("properties: ", properties)
+    def run(self, edit, type):
         view = self.view
         for region in view.sel():
             if not region.empty():
                 s = view.substr(region) # string of selected region
                 t = bs_parser(s,type) # send string to parser
                 view.replace(edit, region, t) # Update page content
-                # self.view.run_command("select_all")
-                # self.view.run_command("htmlprettify")
-                # self.view.sel().clear()
+                self.view.run_command("select_all")
+                self.view.run_command("htmlprettify")
+                self.view.sel().clear()
 
 def bs_parser(string, type):
 
     name = type
+    print("name: ", name)
     items = string.split('<h5>')
 
     # Initiate Card properties.   Set as blank if undefined
@@ -100,15 +146,30 @@ def bs_parser(string, type):
     print("cardTitle: ", cardTitle)
     cardColour = snippets[type].get('Card-Colour','')
     print("cardColour: ", cardColour)
+    cardHeader = snippets[type].get('Card-Header','')
+    print("cardHeader: ", cardHeader)
+    titlePrefix = snippets[type].get('Title-Prefix','')
+    print("titlePrefix: ", titlePrefix)
+    titleSuffix = snippets[type].get('Title-Suffix','')
+    print("titleSuffix: ", titleSuffix)
+    titleIcon = snippets[type].get('Title-Icon','')
+    print("titleIcon: ", titleIcon)
 
+    #if properties are defined, use these
 
+    #if I am a Card
+    if (type.startswith('Card-')):
+        type = 'Card-Template'
+
+    #if I am a Card
+    if (type.startswith('Box-')):
+        type = 'Box-Template'
 
     # if I am a type of Card group
     if (type == "Card-Group" or type == "Card-Deck" or type == "Card-Images" or type == "Card-Rainbow"):
         if len(items) > 4:
             cardStart = snippets['Card-Columns']['Card-Start']
             print("cardStart: ", cardStart)
-        type = 'Card-Template'
     new_str = items[0] # Content prior to first <h5>
     # Create random ID
     randomKey = random_key(6)
@@ -140,14 +201,14 @@ def bs_parser(string, type):
                 tabState = ' active show'
             # rainbow items
             if name == 'Card-Rainbow':
-                print("name: ", name)
                 n = idx%len(colours) - 1
-                print("n: ", n)
                 cardColour = " " + colours[n]
+                print("cardColour: ", cardColour)
 
-            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch='',ct=cardTitle,cc=cardColour,ci=cardImg)
+            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=titlePrefix,ts=titleSuffix)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
-    print("new_str: ", new_str)
+
+    # print("new_str: ", new_str)
     return new_str
 
 def random_key(length):

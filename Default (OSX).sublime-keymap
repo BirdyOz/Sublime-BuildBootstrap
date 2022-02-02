@@ -62,21 +62,6 @@
         {
             "type": "Show"
         }
-    },
-    {
-        "keys":  ["ctrl+super+option+c","ctrl+super+option+p"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Template",
-            "properties": {
-                "card": "mb-1",
-                "card-header": " bg-primary text-white",
-                "heading": " text-white",
-                "prefix": "",
-                "suffix": ""
-            }
-        }
     }
 ]
 
