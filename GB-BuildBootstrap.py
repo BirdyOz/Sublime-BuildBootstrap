@@ -152,6 +152,20 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 self.view.run_command("htmlprettify")
                 self.view.sel().clear()
 
+class QuickClickCommand(sublime_plugin.TextCommand):
+    def run(self, edit, items):
+        self.view.show_popup_menu(
+            [item["caption"] for item in items],
+            lambda idx: self.pick(idx, items))
+
+    def pick(self, idx, items):
+        if idx >= 0:
+            command = items[idx].get("command")
+            args = items[idx].get("args")
+            self.view.window().run_command(command, args)
+
+
+
 
 def bs_parser(string, type):
 

@@ -1,174 +1,288 @@
-[
+[{
+    "caption": "BirdyOz - Build Bootstrap (Accordion)",
+    "command": "build_bootstrap",
+    "args":
     {
-        "caption": "BirdyOz - Build Bootstrap (Accordion)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Accordion"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Card Group)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Group"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Vertical Tabs)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "V-tabs"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Horizontal Tabs)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "H-tabs"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Deck)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Deck"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Show)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Show"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Rainbow)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Rainbow"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Bootstrap (Card Deck, with images)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Images"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Primary (Blue)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Primary"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Secondary (Grey)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Secondary"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Success (Green)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Success"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Danger (Red)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Danger"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Warning (Yellow)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Warning"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Info (Turquoise)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Info"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Light (Light grey)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Light"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Card - Dark (Black)",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Dark"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Box - Think",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Box-Think"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Box - Read",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Box-Read"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Box - Important",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Box-Important"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Box - Reflection Activity",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Box-Reflect"
-        }
-    },
-    {
-        "caption": "BirdyOz - Build Box - Discussion Activity",
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Box-Discuss"
-        }
-    },
-    {
-        "caption": "BirdyOz - Quick Click",
-        "command": "quick_click"
+        "type": "Accordion"
     }
-]
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Card Group)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Group"
+    }
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Vertical Tabs)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "V-tabs"
+    }
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Horizontal Tabs)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "H-tabs"
+    }
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Deck)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Deck"
+    }
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Show)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Show"
+    }
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Rainbow)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Rainbow"
+    }
+},
+{
+    "caption": "BirdyOz - Build Bootstrap (Card Deck, with images)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Images"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Primary (Blue)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Primary"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Secondary (Grey)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Secondary"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Success (Green)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Success"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Danger (Red)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Danger"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Warning (Yellow)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Warning"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Info (Turquoise)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Info"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Light (Light grey)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Light"
+    }
+},
+{
+    "caption": "BirdyOz - Build Card - Dark (Black)",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Card-Dark"
+    }
+},
+{
+    "caption": "BirdyOz - Build Box - Think",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Box-Think"
+    }
+},
+{
+    "caption": "BirdyOz - Build Box - Read",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Box-Read"
+    }
+},
+{
+    "caption": "BirdyOz - Build Box - Important",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Box-Important"
+    }
+},
+{
+    "caption": "BirdyOz - Build Box - Reflection Activity",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Box-Reflect"
+    }
+},
+{
+    "caption": "BirdyOz - Build Box - Discussion Activity",
+    "command": "build_bootstrap",
+    "args":
+    {
+        "type": "Box-Discuss"
+    }
+},
+{
+    "caption": "BirdyOz - Build Box [MENU]",
+    "command": "quick_click",
+    "args":
+    {
+        "items": [
+        {
+            "caption": "BirdyOz - Build Box - Think",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Think"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Read",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Read"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Important",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Important"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Reflection Activity",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Reflect"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Discussion Activity",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Discuss"
+            }
+        }]
+    }
+},
+{
+    "caption": "BirdyOz - Build Card [MENU]",
+    "command": "quick_click",
+    "args":
+    {
+        "items": [
+        {
+            "caption": "BirdyOz - Build Card - Primary (Blue)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Primary"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Secondary (Grey)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Secondary"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Success (Green)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Success"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Danger (Red)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Danger"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Warning (Yellow)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Warning"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Info (Turquoise)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Info"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Light (Light grey)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Light"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Card - Dark (Black)",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Card-Dark"
+            }
+        }]
+    }
+}]
