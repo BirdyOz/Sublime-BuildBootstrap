@@ -148,9 +148,10 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 s = view.substr(region) # string of selected region
                 t = bs_parser(s,type) # send string to parser
                 view.replace(edit, region, t) # Update page content
-                # self.view.run_command("select_all")
-                # self.view.run_command("htmlprettify")
-                # self.view.sel().clear()
+                self.view.run_command("select_all")
+                self.view.run_command("htmlprettify")
+                self.view.sel().clear()
+
 
 def bs_parser(string, type):
 
@@ -186,6 +187,7 @@ def bs_parser(string, type):
     #if I am a Card
     if (type.startswith('Box-')):
         type = 'Box-Template'
+
 
     # if I am a type of Card group
     if (type == "Card-Group" or type == "Card-Deck" or type == "Card-Images" or type == "Card-Rainbow"):

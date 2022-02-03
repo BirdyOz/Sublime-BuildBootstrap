@@ -166,5 +166,9 @@
         {
             "type": "Box-Discuss"
         }
+    },
+    {
+        "caption": "BirdyOz - Quick Click",
+        "command": "quick_click"
     }
 ]
