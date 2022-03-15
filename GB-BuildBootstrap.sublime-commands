@@ -205,11 +205,43 @@
             }
         },
         {
+            "caption": "BirdyOz - Build Box - Learning Activity",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Learning"
+            }
+        },
+        {
             "caption": "BirdyOz - Build Box - Discussion Activity",
             "command": "build_bootstrap",
             "args":
             {
                 "type": "Box-Discuss"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Law/Standard",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Law"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Portfolio Activity",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Portfolio"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Box - Further Information",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Box-Info"
             }
         }]
     }

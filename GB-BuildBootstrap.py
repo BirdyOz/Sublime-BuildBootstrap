@@ -1,5 +1,5 @@
 import sublime, sublime_plugin, string, random
-from datetime import date
+from datetime import date, time
 today = date.today()
 
 # Define HTML code snippets
@@ -124,17 +124,44 @@ snippets = {
             },
     "Box-Reflect": {
                 "Card-Repeat": " mt-1 mb-1",
-                "Title-Prefix": "Reflection Activity - ",
+                "Title-Prefix": "Reflection Activity",
                 "Card-Title": " text-danger",
                 "Title-Icon": 'fa-tasks',
-                "Box-Footer": '<div class="alert alert-warning" role="alert"> Record your responses in your <em>Learner\'s Worksheet</em>. Bring this document with you to your next face-to-face class to discuss with your teacher and fellow students. </div>'
+                "Box-Footer": '<div class="alert alert-success" role="alert"> Record your responses in your <em>Learner\'s Worksheet</em>. Bring this document with you to your next face-to-face class to discuss with your teacher and fellow students. </div>'
             },
     "Box-Discuss": {
                 "Card-Repeat": " mt-1 mb-1",
-                "Title-Prefix": "Discussion Activity - ",
+                "Title-Prefix": "Discussion Activity",
                 "Card-Title": " text-danger",
                 "Title-Icon": 'fa-tasks',
-                "Box-Footer": '<div class="alert alert-warning" role="alert"> Record your responses in the [exact name of discussion activity] forum that follows this content. </div>'
+                "Box-Footer": '<div class="alert alert-success" role="alert"> Record your responses in the [exact name of discussion activity] forum that follows this content. </div>'
+            },
+    "Box-Learning": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Title-Prefix": "Learning Activity",
+                "Card-Title": " text-danger",
+                "Title-Icon": 'fa-tasks',
+                "Box-Footer": '<div class="alert alert-success" role="alert"> Record your responses in your <strong>Learning Activity Worksheet </strong>. Your reflections will help you to understand the content and prepare for assessment. You might be asked to share your responses in class.</div>'
+            },
+    "Box-Law": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Title-Prefix": "Law/Standard",
+                "Card-Title": " text-danger",
+                "Title-Icon": 'fa-balance-scale',
+                "Box-Footer": '<div class="alert alert-success" role="alert"> Check with your workplace or library for a copy of this standard.</div>'
+            },
+    "Box-Portfolio": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Title-Prefix": "Portfolio",
+                "Card-Title": " text-success",
+                "Title-Icon": 'fa-flag',
+                "Box-Footer": '<div class="alert alert-success" role="alert"> Record your responses in your portfolio of evidence.</div>'
+            },
+    "Box-Info": {
+                "Card-Repeat": " mt-1 mb-1",
+                "Title-Prefix": "Further Information",
+                "Card-Title": " text-success",
+                "Title-Icon": 'fa-info-circle'
             }
 }
 
@@ -249,7 +276,16 @@ def bs_parser(string, type):
                 cardColour = " " + colours[n]
                 print("cardColour: ", cardColour)
 
-            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=titlePrefix,ts=titleSuffix,n=name,t=today,bf=boxFooter)
+            # If heading text already starts with title prefix (for boxes etc)
+            if (titlePrefix is not ''):
+                print("sub_items[0]: ", sub_items[0])
+                if(sub_items[0].startswith(titlePrefix)):
+                    tP = ''
+                else:
+                    tP = titlePrefix + ' - '
+
+
+            new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=tP,ts=titleSuffix,n=name,t=today,bf=boxFooter)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
 
     # print("new_str: ", new_str)
