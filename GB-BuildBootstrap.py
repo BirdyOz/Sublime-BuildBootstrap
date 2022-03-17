@@ -213,7 +213,7 @@ def bs_parser(string, type):
     print("cardColour: ", cardColour)
     cardHeader = snippets[type].get('Card-Header','')
     print("cardHeader: ", cardHeader)
-    titlePrefix = snippets[type].get('Title-Prefix','')
+    titlePrefix = tP = snippets[type].get('Title-Prefix','')
     print("titlePrefix: ", titlePrefix)
     titleSuffix = snippets[type].get('Title-Suffix','')
     print("titleSuffix: ", titleSuffix)
