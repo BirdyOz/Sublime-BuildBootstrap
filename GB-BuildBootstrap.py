@@ -173,11 +173,14 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
         for region in view.sel():
             if not region.empty():
                 s = view.substr(region) # string of selected region
+                scope = view.scope_name(view.sel()[0].begin())
                 t = bs_parser(s,type) # send string to parser
+
                 view.replace(edit, region, t) # Update page content
-                self.view.run_command("select_all")
                 self.view.run_command("htmlprettify")
-                self.view.sel().clear()
+                if 'text.html.markdown' in str(scope):
+                    self.view.run_command("delete_empty_lines")
+                # self.view.sel().clear()
 
 class QuickClickCommand(sublime_plugin.TextCommand):
     def run(self, edit, items):
