@@ -40,6 +40,12 @@ snippets = {
         "Repeat": '\n\n<!-- Start of card {i} --> <div class="card {cr} {cc} clearfix">{ci}<div class="card-header{ch}"><h4 class="card-title{ct}">{ti}{tp}{a}{ts}</h4> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
         "End": '</div> \n<!-- End of {n}, ID = {r}, date = {t} -->\n\n'
     },
+    "Grid-Template":
+    {
+        "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="row row-cols-1 {cs} m-1">',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="col mb-4"> <div class="card h-100 {cr} {cc} clearfix"><div class="card-header{ch}"><h4 class="card-title{ct}">{ti}{tp}{a}{ts}</h4> </div> <div class="card-body">{b}</div> </div></div> \n<!-- End of card {i} --> ',
+        "End": '</div> \n<!-- End of {n}, ID = {r}, date = {t} -->\n\n'
+    },
     "Box-Template":
     {
         "Start": '',
@@ -168,7 +174,23 @@ snippets = {
                 "Title-Prefix": "Further Information",
                 "Card-Title": " text-success",
                 "Title-Icon": 'fa-info-circle'
-            }
+            },
+    "Grid-2x": {
+                "Card-Start": 'row-cols-md-2'
+    },
+    "Grid-3x": {
+                "Card-Start": 'row-cols-lg-3 row-cols-md-2'
+    },
+    "Grid-Rainbow-2x": {
+                "Card-Start": 'row-cols-md-2',
+                "Card-Repeat": ' text-white',
+                "Card-Title": ' text-white',
+    },
+    "Grid-Rainbow-3x": {
+                "Card-Start": 'row-cols-lg-3 row-cols-md-2',
+                "Card-Repeat": ' text-white',
+                "Card-Title": ' text-white',
+    }
 }
 
 colours = ('bg-primary', 'bg-info', 'bg-success', 'bg-danger',  'bg-dark', 'bg-secondary')
@@ -201,8 +223,6 @@ class QuickClickCommand(sublime_plugin.TextCommand):
             self.view.window().run_command(command, args)
 
 
-
-
 def bs_parser(string, type):
 
     name = type
@@ -210,11 +230,9 @@ def bs_parser(string, type):
     items = string.split('<h3>')
     print("items: ", items)
 
-
     #if I am an Alert
     if (type.startswith('Alert-')):
         type = 'Alert-Template'
-
 
     # Initiate Card properties.   Set as blank if undefined
     cardStart = snippets[type].get('Card-Start','')
@@ -230,11 +248,9 @@ def bs_parser(string, type):
 
     #if properties are defined, use these
 
-
     #if I am a Card
     if (type.startswith('Box-')):
         type = 'Box-Template'
-
 
 
     # if I am a type of Card group
@@ -247,6 +263,10 @@ def bs_parser(string, type):
     #if I am a Card
     if (type.startswith('Card-')):
         type = 'Card-Template'
+
+    #if I am a Grid
+    if (type.startswith('Grid-')):
+        type = 'Grid-Template'
 
     new_str = items[0] # Content prior to first <h3>
     print("new_str: ", new_str)
@@ -288,7 +308,7 @@ def bs_parser(string, type):
             if idx == 1: # If I'm the first item
                 tabState = ' active show'
             # rainbow items
-            if name == 'Card-Rainbow':
+            if '-Rainbow' in name:
                 n = idx%len(colours) - 1
                 cardColour = " " + colours[n]
                 print("cardColour: ", cardColour)
@@ -301,21 +321,10 @@ def bs_parser(string, type):
                 else:
                     tP = titlePrefix + ' - '
 
-
             new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=tP,ts=titleSuffix,n=name,t=today,bf=boxFooter)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
 
-    # print("new_str: ", new_str)
-    print("cardStart: ", cardStart)
-    print("cardRepeat: ", cardRepeat)
-    print("cardImg: ", cardImg)
-    print("cardTitle: ", cardTitle)
-    print("cardColour: ", cardColour)
-    print("cardHeader: ", cardHeader)
-    print("titlePrefix: ", titlePrefix)
-    print("titleSuffix: ", titleSuffix)
-    print("titleIcon: ", titleIcon)
-    print("boxFooter: ", boxFooter)
+
     return new_str
 
 def random_key(length):
