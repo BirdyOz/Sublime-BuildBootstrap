@@ -1,62 +1,62 @@
 [
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+a"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys": ["ctrl+super+option+b","ctrl+super+option+a"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Accordion"
-        }
-    },
+        "type": "Accordion"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+g"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys": ["ctrl+super+option+b","ctrl+super+option+g"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Group"
-        }
-    },
+        "type": "Card-Group"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+t"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys":  ["ctrl+super+option+b","ctrl+super+option+t"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "V-tabs"
-        }
-    },
+        "type": "V-tabs"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+h"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys":  ["ctrl+super+option+b","ctrl+super+option+h"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "H-tabs"
-        }
-    },
+        "type": "H-tabs"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+d"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys":  ["ctrl+super+option+b","ctrl+super+option+d"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Deck"
-        }
-    },
+        "type": "Card-Deck"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+r"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys":  ["ctrl+super+option+b","ctrl+super+option+r"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Rainbow"
-        }
-    },
+        "type": "Card-Rainbow"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+i"],
+    "command": "build_bootstrap",
+    "args":
     {
-        "keys":  ["ctrl+super+option+b","ctrl+super+option+i"],
-        "command": "build_bootstrap",
-        "args":
-        {
-            "type": "Card-Images"
-        }
-    },
-    {
-    "keys":  ["ctrl+super+option+b","ctrl+super+option+b"],
+        "type": "Card-Images"
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+b"],
     "command": "quick_click",
     "args":
     {
@@ -136,7 +136,7 @@
     }
 },
 {
-    "keys": ["ctrl+super+option+b","ctrl+super+option+c"],
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+c"],
     "command": "quick_click",
     "args":
     {
@@ -206,8 +206,78 @@
             }
         }]
     }
-}
-]
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+a"],
+    "command": "quick_click",
+    "args":
+    {
+        "items": [
+            {
+                "caption": "BirdyOz - Build Alert - Success (Green)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Success"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build Alert - Warning (Yellow)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Warning"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build Alert - Danger (Red)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Danger"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build Alert - Primary (Blue)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Primary"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build Alert - Secondary (Grey)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Secondary"
+                }
+            },
 
-
-
+            {
+                "caption": "BirdyOz - Build Alert - Info (Turquoise)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Info"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build Alert - Light (Light grey)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Light"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build Alert - Dark (Black)",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Alert-Dark"
+                }
+            }
+        ]
+    }
+}]

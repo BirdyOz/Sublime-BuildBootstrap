@@ -7,7 +7,7 @@ snippets = {
     "Accordion":
         {
         "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of Accordion, ID = {r}, date = {t} --> <div class="accordion" id="accordion-{r}">',
-        "Repeat": '\n\n<!-- Start of Item {i} --> <div class="card"> <div class="card-header" id="heading-{i}-{r}"> <h5 class="mb-0"> <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{i}-{r}" aria-expanded="false" aria-controls="collapse-{i}-{r}"> {a} </button> </h5> </div> <div id="collapse-{i}-{r}" class="collapse" aria-labelledby="heading-{i}-{r}" data-parent="#accordion-{r}"> <div class="card-body">{b}</div> </div> </div> \n<!-- End of Item {i} --> ',
+        "Repeat": '\n\n<!-- Start of Item {i} --> <div class="card clearfix"> <div class="card-header" id="heading-{i}-{r}"> <h4 class="mb-0"> <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{i}-{r}" aria-expanded="false" aria-controls="collapse-{i}-{r}"> {a} </button> </h4> </div> <div id="collapse-{i}-{r}" class="collapse" aria-labelledby="heading-{i}-{r}" data-parent="#accordion-{r}"> <div class="card-body">{b}</div> </div> </div> \n<!-- End of Item {i} --> ',
         "End": '</div> \n<!-- End of Accordion, ID = {r}, date = {t} --> \n\n'
         },
     "V-tabs":
@@ -16,7 +16,7 @@ snippets = {
         "Nav-Start": '<div class="nav flex-column nav-pills" id="vtabs-{r}" role="tablist" aria-orientation="vertical">',
         "Nav-Repeat": '<a class="nav-link{c}" id="vtabs-{i}-{r}-tab" data-toggle="pill" href="#vtabs-{i}-{r}" role="tab" aria-controls="vtabs-{i}-{r}" aria-selected="{f}">{a}</a>',
         "Nav-End": '</div> </div> <div class="col-9 no-gutters"> <div class="tab-content" id="v-tabs-tabContent">',
-        "Repeat": '\n\n<!-- Start of Item {i} --> <div class="tab-pane card p-3 fade{c}" id="vtabs-{i}-{r}" role="tabpanel" aria-labelledby="vtabs-{i}-{r}"> <h4>{a}</h4> {b} </div> \n<!-- End of Item {i} --> ',
+        "Repeat": '\n\n<!-- Start of Item {i} --> <div class="tab-pane card clearfix p-3 fade{c}" id="vtabs-{i}-{r}" role="tabpanel" aria-labelledby="vtabs-{i}-{r}"> <h4>{a}</h4> {b} </div> \n<!-- End of Item {i} --> ',
         "End": '</div> </div> </div> \n<!-- End of Vertical tabs, ID = {r}, date = {t} --> \n\n'
     },
     "H-tabs":
@@ -25,25 +25,31 @@ snippets = {
         "Nav-Start": '<ul class="nav nav-pills mb-0" id="htabs-{r}" role="tablist">',
         "Nav-Repeat": '<li class="nav-item"><a class="nav-link{c}" id="htabs-{i}-{r}-tab" data-toggle="pill" href="#htabs-{i}-{r}" role="tab" aria-controls="htabs-{i}-{r}" aria-selected="{f}">{a}</a></li>',
         "Nav-End": '</ul><div class="tab-content card" id="pills-tabContent">',
-        "Repeat": '\n\n<!-- Start of Item {i} --> <div class="tab-pane p-3 fade{c}" id="htabs-{i}-{r}" role="tabpanel" aria-labelledby="htabs-{i}-{r}"> <h4>{a}</h4> {b} </div> \n<!-- End of Item {i} --> ',
+        "Repeat": '\n\n<!-- Start of Item {i} --> <div class="tab-pane clearfix p-3 fade{c}" id="htabs-{i}-{r}" role="tabpanel" aria-labelledby="htabs-{i}-{r}"> <h4>{a}</h4> {b} </div> \n<!-- End of Item {i} --> ',
         "End": '</div> \n<!-- End of Horizontal tabs, ID = {r}, date = {t} --> \n\n'
     },
     "Show":
     {
         "Start": '\n\n<!-- Start of Show/Hide interface, ID = {r}, date = {t} -->',
-        "Repeat": '<p> <a class="btn btn-primary" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">{a}</a> </p>\n<div class="collapse" id="show-{r}"> <div class="card card-body"><h5>{a}</h5>\n{b} <small><a class="btn-block btn btn-sm btn-light" class="text-center" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">Hide</a></small> </div> </div>',
+        "Repeat": '<p> <a class="btn btn-primary" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">{a}</a> </p>\n<div class="collapse" id="show-{r}"> <div class="card clearfix card-body"><h4>{a}</h4>\n{b} <small><a class="btn-block btn btn-sm btn-light" class="text-center" data-toggle="collapse" href="#show-{r}" role="button" aria-expanded="false" aria-controls="show-{r}">Hide</a></small> </div> </div>',
         "End": ' \n<!-- End of Show/Hide interface, ID = {r}, date = {t} -->\n\n'
     },
     "Card-Template":
     {
         "Start": '\n<div class="clearfix container-fluid"></div>\n\n<!-- Start of {n}, ID = {r}, date = {t} --> <div class="{cs}">',
-        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card{cr}{cc}">{ci}<div class="card-header{ch}"><h5 class="card-title{ct}">{ti}{tp}{a}{ts}</h5> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
+        "Repeat": '\n\n<!-- Start of card {i} --> <div class="card {cr} {cc} clearfix">{ci}<div class="card-header{ch}"><h4 class="card-title{ct}">{ti}{tp}{a}{ts}</h4> </div> <div class="card-body">{b}</div> </div> \n<!-- End of card {i} --> ',
         "End": '</div> \n<!-- End of {n}, ID = {r}, date = {t} -->\n\n'
     },
     "Box-Template":
     {
         "Start": '',
-        "Repeat": '\n\n<!-- Start of {n}, date = {t} --> \n<div class="clearfix container-fluid"></div>\n<div class="card{cr}{cc}">{ci} <div class="card-body"><h4 class="card-title{ct}"><i aria-hidden="true" class="fa {ti}"></i> {tp}{a}{ts}</h4>{b}\n{bf}</div> </div> \n<!-- End of {n}, date = {t} -->\n\n',
+        "Repeat": '\n\n<!-- Start of {n}, date = {t} --> \n<div class="clearfix container-fluid"></div>\n<div class="card{cr}{cc} clearfix">{ci} <div class="card-body"><h4 class="card-title{ct}"><i aria-hidden="true" class="fa {ti}"></i> {tp}{a}{ts}</h4>{b}\n{bf}</div> </div> \n<!-- End of {n}, date = {t} -->\n\n',
+        "End": ''
+    },
+    "Alert-Template":
+    {
+        "Start": '',
+        "Repeat": '\n\n<!-- Start of {n}, date = {t} --> \n<div class="clearfix container-fluid"></div>\n<div class="alert {cr}" role="alert">\n{a}\n</div>\n<!-- End of {n}, date = {t} -->\n\n',
         "End": ''
     },
     "Card-Group": {
@@ -127,7 +133,7 @@ snippets = {
                 "Title-Prefix": "Reflection Activity",
                 "Card-Title": " text-danger",
                 "Title-Icon": 'fa-tasks',
-                "Box-Footer": '<div class="alert alert-success" role="alert"> Record your responses in your <em>Learner\'s Worksheet</em>. Bring this document with you to your next face-to-face class to discuss with your teacher and fellow students. </div>'
+                "Box-Footer": '<div class="alert alert-success" role="alert"> Record your responses in your <strong>Personal Reflective Journal </strong>. Your reflections will help you to understand the content and prepare for assessment</div>'
             },
     "Box-Discuss": {
                 "Card-Repeat": " mt-1 mb-1",
@@ -145,10 +151,10 @@ snippets = {
             },
     "Box-Law": {
                 "Card-Repeat": " mt-1 mb-1",
-                "Title-Prefix": "Law/Standard",
+                # "Title-Prefix": "Law/Standard",
                 "Card-Title": " text-danger",
-                "Title-Icon": 'fa-balance-scale',
-                "Box-Footer": '<div class="alert alert-success" role="alert"> Check with your workplace or library for a copy of this standard.</div>'
+                "Title-Icon": 'fa-balance-scale'
+                # "Box-Footer": '<div class="alert alert-success" role="alert"> Check with your workplace or library for a copy of this standard.</div>'
             },
     "Box-Portfolio": {
                 "Card-Repeat": " mt-1 mb-1",
@@ -165,7 +171,7 @@ snippets = {
             }
 }
 
-colours = ('bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-info', 'bg-dark')
+colours = ('bg-primary', 'bg-info', 'bg-success', 'bg-danger',  'bg-dark', 'bg-secondary')
 
 class BuildBootstrapCommand(sublime_plugin.TextCommand):
     def run(self, edit, type):
@@ -180,7 +186,7 @@ class BuildBootstrapCommand(sublime_plugin.TextCommand):
                 self.view.run_command("htmlprettify")
                 if 'text.html.markdown' in str(scope):
                     self.view.run_command("delete_empty_lines")
-                # self.view.sel().clear()
+                self.view.sel().clear()
 
 class QuickClickCommand(sublime_plugin.TextCommand):
     def run(self, edit, items):
@@ -201,29 +207,26 @@ def bs_parser(string, type):
 
     name = type
     print("name: ", name)
-    items = string.split('<h5>')
+    items = string.split('<h3>')
+    print("items: ", items)
+
+
+    #if I am an Alert
+    if (type.startswith('Alert-')):
+        type = 'Alert-Template'
+
 
     # Initiate Card properties.   Set as blank if undefined
     cardStart = snippets[type].get('Card-Start','')
-    print("cardStart: ", cardStart)
     cardRepeat = snippets[type].get('Card-Repeat','')
-    print("cardRepeat: ", cardRepeat)
     cardImg = snippets[type].get('Card-Img','')
-    print("cardImg: ", cardImg)
     cardTitle = snippets[type].get('Card-Title','')
-    print("cardTitle: ", cardTitle)
     cardColour = snippets[type].get('Card-Colour','')
-    print("cardColour: ", cardColour)
     cardHeader = snippets[type].get('Card-Header','')
-    print("cardHeader: ", cardHeader)
     titlePrefix = tP = snippets[type].get('Title-Prefix','')
-    print("titlePrefix: ", titlePrefix)
     titleSuffix = snippets[type].get('Title-Suffix','')
-    print("titleSuffix: ", titleSuffix)
     titleIcon = snippets[type].get('Title-Icon','')
-    print("titleIcon: ", titleIcon)
     boxFooter = snippets[type].get('Box-Footer','')
-    print("boxFooter: ", boxFooter)
 
     #if properties are defined, use these
 
@@ -231,6 +234,7 @@ def bs_parser(string, type):
     #if I am a Card
     if (type.startswith('Box-')):
         type = 'Box-Template'
+
 
 
     # if I am a type of Card group
@@ -244,13 +248,15 @@ def bs_parser(string, type):
     if (type.startswith('Card-')):
         type = 'Card-Template'
 
-    new_str = items[0] # Content prior to first <h5>
+    new_str = items[0] # Content prior to first <h3>
+    print("new_str: ", new_str)
     # Create random ID
     randomKey = random_key(6)
-    # loop thorough items (as defind by <h5>)
+    # loop thorough items (as defind by <h3>)
     for idx, item in enumerate(items):
         i = str (idx)
-        if idx == 0:
+        if idx == 0 and len(items)>1:
+            print("idx: ", idx)
             # Built starting BS HTML
             new_str += snippets[type]['Start'].format(r=randomKey,t=today,n=name,cs=cardStart)
             # If I have top level nav (V-tabs or H-tabs)
@@ -260,7 +266,7 @@ def bs_parser(string, type):
                     i = str (idx)
                     tabState = ''
                     f = 'false'
-                    sub_items = item.split('</h5>')
+                    sub_items = item.split('</h3>')
                     if idx == 1: # If I'm the first item
                         tabState = ' active show'
                         f = 'true'
@@ -269,7 +275,15 @@ def bs_parser(string, type):
                 new_str += snippets[type]['Nav-End'].format(r=randomKey)
         else:
             # Build repeating items
-            sub_items = item.split('</h5>')
+            sub_items = item.split('</h3>')
+            print("sub_items: ", sub_items)
+
+            # If there was no </h3>
+            if len(sub_items) == 1:
+                sub_items.append('')
+                new_str = ''
+
+
             tabState = ''
             if idx == 1: # If I'm the first item
                 tabState = ' active show'
@@ -292,6 +306,16 @@ def bs_parser(string, type):
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
 
     # print("new_str: ", new_str)
+    print("cardStart: ", cardStart)
+    print("cardRepeat: ", cardRepeat)
+    print("cardImg: ", cardImg)
+    print("cardTitle: ", cardTitle)
+    print("cardColour: ", cardColour)
+    print("cardHeader: ", cardHeader)
+    print("titlePrefix: ", titlePrefix)
+    print("titleSuffix: ", titleSuffix)
+    print("titleIcon: ", titleIcon)
+    print("boxFooter: ", boxFooter)
     return new_str
 
 def random_key(length):
