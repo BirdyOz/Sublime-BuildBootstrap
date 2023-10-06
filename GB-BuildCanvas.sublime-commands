@@ -1,6 +1,6 @@
 [
 {
-    "keys": ["ctrl+super+option+c", "ctrl+super+option+a"],
+    "caption":"BirdyOz - Build Canvas - Accordion",
     "command": "build_canvas",
     "args":
     {
@@ -8,7 +8,7 @@
     }
 },
 {
-    "keys": ["ctrl+super+option+c", "ctrl+super+option+t"],
+    "caption":"BirdyOz - Build Canvas - Vertical tabs",
     "command": "build_canvas",
     "args":
     {
@@ -16,7 +16,7 @@
     }
 },
 {
-    "keys": ["ctrl+super+option+c", "ctrl+super+option+h"],
+    "caption":"BirdyOz - Build Canvas - Horizaontal tabs",
     "command": "build_canvas",
     "args":
     {
@@ -24,7 +24,7 @@
     }
 },
 {
-    "keys": ["ctrl+super+option+c", "ctrl+super+option+t"],
+    "caption":"BirdyOz - Build Canvas - Tiles",
     "command": "build_canvas",
     "args":
     {
@@ -32,7 +32,23 @@
     }
 },
 {
-    "keys": ["ctrl+super+option+c", "ctrl+super+option+b"],
+    "caption":"BirdyOz - Build Canvas - Deaf",
+    "command": "build_canvas",
+    "args":
+    {
+        "type": "Deaf"
+    }
+},
+{
+    "caption":"BirdyOz - Build Canvas - Neurodiversity",
+    "command": "build_canvas",
+    "args":
+    {
+        "type": "Neurodiversity"
+    }
+},
+{
+    "caption":"BirdyOz - Build Canvas Box [MENU]",
     "command": "quick_click",
     "args":
     {
@@ -99,22 +115,6 @@
             "args":
             {
                 "type": "Box-Activity"
-            }
-        },
-        {
-            "caption": "BirdyOz - Build Canvas Box - Deaf",
-            "command": "build_canvas",
-            "args":
-            {
-                "type": "Deaf"
-            }
-        },
-        {
-            "caption": "BirdyOz - Build Canvas Box - Neurodiversity",
-            "command": "build_canvas",
-            "args":
-            {
-                "type": "Neurodiversity"
             }
         }
     ]
