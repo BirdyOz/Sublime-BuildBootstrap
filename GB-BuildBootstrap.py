@@ -1,4 +1,4 @@
-import sublime, sublime_plugin, string, random
+import sublime, sublime_plugin, string, random, re
 from datetime import date, time
 today = date.today()
 
@@ -179,7 +179,7 @@ snippets = {
                 "Card-Start": 'row-cols-md-2'
     },
     "Grid-3x": {
-                "Card-Start": 'row-cols-lg-3 row-cols-md-2'
+                "Card-Start": 'row-cols-xl-3 row-cols-lg-2'
     },
     "Grid-Rainbow-2x": {
                 "Card-Start": 'row-cols-md-2',
@@ -187,7 +187,7 @@ snippets = {
                 "Card-Title": ' text-white',
     },
     "Grid-Rainbow-3x": {
-                "Card-Start": 'row-cols-lg-3 row-cols-md-2',
+                "Card-Start": 'row-cols-xl-3 row-cols-lg-2',
                 "Card-Repeat": ' text-white',
                 "Card-Title": ' text-white',
     }
@@ -323,6 +323,7 @@ def bs_parser(string, type):
 
             new_str += snippets[type]['Repeat'].format(r=randomKey, i=i, a=sub_items[0], b=sub_items[1],c=tabState,cr=cardRepeat,ch=cardHeader,ct=cardTitle,cc=cardColour,ci=cardImg,ti=titleIcon,tp=tP,ts=titleSuffix,n=name,t=today,bf=boxFooter)
     new_str += snippets[type]['End'].format(r=randomKey,t=today,n=name)
+    new_str = re.sub('(?<!\.) {2,}',' ',new_str)
 
 
     return new_str

@@ -280,4 +280,45 @@
             }
         ]
     }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+x"],
+    "command": "quick_click",
+    "args":
+    {
+        "items": [
+            {
+                "caption": "BirdyOz - Build 2x grid",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Grid-2x"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build 3x grid",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Grid-3x"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build 2x Rainbow",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Grid-Rainbow-2x"
+                }
+            },
+            {
+                "caption": "BirdyOz - Build 3x Rainbow",
+                "command": "build_bootstrap",
+                "args":
+                {
+                    "type": "Grid-Rainbow-3x"
+                }
+            }
+        ]
+    }
 }]
