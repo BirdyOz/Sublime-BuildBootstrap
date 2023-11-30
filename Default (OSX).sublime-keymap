@@ -1,10 +1,42 @@
 [
 {
-    "keys": ["ctrl+super+option+b", "ctrl+super+option+a"],
-    "command": "build_bootstrap",
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+i"],
+    "command": "quick_click",
     "args":
     {
-        "type": "Accordion"
+        "items": [
+        {
+            "caption": "BirdyOz - Build Interactive - Accordion",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Accordion"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Interactive - Vertical tabs",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "V-tabs"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Interactive - Horizontal tabs",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "H-tabs"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build Interactive - Show/hide",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Show"
+            }
+        }]
     }
 },
 {
@@ -13,14 +45,6 @@
     "args":
     {
         "type": "Card-Group"
-    }
-},
-{
-    "keys": ["ctrl+super+option+b", "ctrl+super+option+t"],
-    "command": "build_bootstrap",
-    "args":
-    {
-        "type": "V-tabs"
     }
 },
 {
@@ -45,14 +69,6 @@
     "args":
     {
         "type": "Card-Rainbow"
-    }
-},
-{
-    "keys": ["ctrl+super+option+b", "ctrl+super+option+i"],
-    "command": "build_bootstrap",
-    "args":
-    {
-        "type": "Card-Images"
     }
 },
 {
@@ -287,38 +303,61 @@
     "args":
     {
         "items": [
+        {
+            "caption": "BirdyOz - Build 2x grid",
+            "command": "build_bootstrap",
+            "args":
             {
-                "caption": "BirdyOz - Build 2x grid",
-                "command": "build_bootstrap",
-                "args":
-                {
-                    "type": "Grid-2x"
-                }
-            },
-            {
-                "caption": "BirdyOz - Build 3x grid",
-                "command": "build_bootstrap",
-                "args":
-                {
-                    "type": "Grid-3x"
-                }
-            },
-            {
-                "caption": "BirdyOz - Build 2x Rainbow",
-                "command": "build_bootstrap",
-                "args":
-                {
-                    "type": "Grid-Rainbow-2x"
-                }
-            },
-            {
-                "caption": "BirdyOz - Build 3x Rainbow",
-                "command": "build_bootstrap",
-                "args":
-                {
-                    "type": "Grid-Rainbow-3x"
-                }
+                "type": "Grid-2x"
             }
-        ]
+        },
+        {
+            "caption": "BirdyOz - Build 3x grid",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Grid-3x"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build 2x Rainbow",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Grid-Rainbow-2x"
+            }
+        },
+        {
+            "caption": "BirdyOz - Build 3x Rainbow",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Grid-Rainbow-3x"
+            }
+        }]
+    }
+},
+{
+    "keys": ["ctrl+super+option+b", "ctrl+super+option+q"],
+    "command": "quick_click",
+    "args":
+    {
+        "items": [
+        {
+            "caption": "BirdyOz - Fancy Pullquotes",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Quote-Fancy"
+            }
+        },
+        {
+            "caption": "BirdyOz - Fancy quotes in Cards",
+            "command": "build_bootstrap",
+            "args":
+            {
+                "type": "Quote-Fancy-Card"
+            }
+        }]
     }
 }]
