@@ -1,5 +1,8 @@
 import sublime, sublime_plugin, string, random, re
+from bs4 import BeautifulSoup
 from datetime import date, time
+
+
 today = date.today()
 
 # Define HTML code snippets
@@ -68,6 +71,12 @@ snippets = {
     {
         "Start": '',
         "Repeat": '\n\n<!-- Start of {n}, date = {t} -->\n<div class="clearfix container-fluid"></div>\n<div class="alert {cr} clearfix w-100" role="alert">\n{a}\n</div>\n<!-- End of {n}, date = {t} -->\n\n\n',
+        "End": ''
+    },
+    "Image-Template":
+    {
+        "Start": '',
+        "Repeat": '\n\n<!-- Start of {n}, date = {t} -->\n<figure class="figure border rounded p-1 bg-light text-right {cr} w-100"> <img class="w-100 img-fluid" src="{src}" alt="{alt}">\n <figcaption class="figure-caption text-muted small fw-lighter"> <small> {b} </small> </figcaption> \n</figure>\n<!-- End of {n}, date = {t} -->\n\n',
         "End": ''
     },
     "Card-Group": {
@@ -187,6 +196,12 @@ snippets = {
                 "Card-Title": " text-success",
                 "Title-Icon": 'fa-info-circle'
             },
+    "Image-Float-Right": {
+                "Card-Repeat": " float-right ml-4 col-5"
+            },
+    "Image-Full-Width": {
+                "Card-Repeat": ""
+            },
     "Grid-2x": {
                 "Card-Start": 'row-cols-md-2'
     },
@@ -245,6 +260,13 @@ def bs_parser(string, type):
         type = 'Alert-Template'
         heading='hx' # Prevent splitting
 
+    #if I am an Alert
+    if (type.startswith('Image-')):
+        type = 'Image-Template'
+        heading='hx' # Prevent splitting
+        alt=''
+        src=''
+
     #if I am a Fancy quote card
     if (type.startswith('Quote-')):
         heading='blockquote' # Prevent splitting
@@ -297,7 +319,7 @@ def bs_parser(string, type):
         i = str (idx)
         if idx == 0 and len(items)>1:
             print("idx: ", idx)
-            # Built starting BS HTML
+            # Build starting BS HTML
             new_str += snippets[type]['Start'].format(r=randomKey,t=today,n=name,cs=cardStart)
             # If I have top level nav (V-tabs or H-tabs)
             if "Nav-Start" in snippets[type].keys():
